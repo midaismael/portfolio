@@ -1,0 +1,52 @@
+header.flex {
+  justify-content: space-between;
+  padding: 0 2.4rem;
+  margin-top: 1.2rem;
+}
+
+header.flex nav {
+  background-color: var(--bgHeader);
+  padding: 0.77rem 1.6rem;
+  border-radius: 55px;
+  box-shadow: 1px 1px 40px #2323242a;
+}
+
+header ul.flex {
+  gap: 16px;
+}
+
+header ul li a {
+  color: var(--title);
+  opacity: 0.9;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+header ul li a:hover {
+  color: var(--blue);
+  opacity: 0.9;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.border {
+  border: 2px solid red;
+}
+header button{
+  font-size: 1.2rem;
+}
+header button.menu{
+  display: none ;
+}
+/* pop model*/
+header .fixed{
+  position: fixed;
+  z-index: 9;
+  inset: 0;
+  background-color: rgb(40, 40, 48, 0.9);
+}
+@media (max-width: 700px) {
+  header.flex nav {
+    display: none;
+  }
+}
