@@ -1,2 +1,4 @@
 **css variables use for dark mode and light
 **rem % px
+**true and false {true && (<div></div>)} it work when click on button
+** usestate 

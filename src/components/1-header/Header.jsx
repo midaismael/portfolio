@@ -1,10 +1,18 @@
+import { useState } from "react";
 import "./header.css";
 
 const Header = () => {
+  const [showModel, setshowModel] = useState(false);
   return (
     <header className="flex">
-      <button className="menu">show model</button>
-      <div/>
+      <button
+        onClick={() => {
+          setshowModel(true);
+        }}
+        className="menu icon-menu flex"
+      />
+
+      <div />
       <nav>
         <ul className="flex">
           <li>
@@ -24,18 +32,39 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <button>light</button>
+      <button className="mode flex">
+        <span className="icon-moon-o"></span>
+      </button>
 
-
-      <div className="border fixed">
-          <ul className="model border">
-            <li><a href="">About</a></li>
-            <li><a href=""></a>Articles</li>
-            <li><a href=""></a>Projects</li>
-            <li><a href=""></a>Speaking</li>
-            <li><a href=""></a>Uses</li>
+      {showModel && (
+        <div className="fixed">
+          <ul className="model">
+            <li>
+              <button
+                className="icon-cross"
+                onClick={() => {
+                  setshowModel(false);
+                }}
+              />
+            </li>
+            <li>
+              <a href="">About</a>
+            </li>
+            <li>
+              <a href="">Articles</a>
+            </li>
+            <li>
+              <a href="">Projects</a>
+            </li>
+            <li>
+              <a href="">Speaking</a>
+            </li>
+            <li>
+              <a href="">Uses</a>
+            </li>
           </ul>
-      </div>
+        </div>
+      )}
     </header>
   );
 };
