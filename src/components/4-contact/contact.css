@@ -1,9 +1,13 @@
 /* ==========================
  table of contents
 =============================
-1. left section 
-2. right section ==> animation
+1. contact us section 
+2.responsive design
 */
+
+/*============================
+  2.contact us
+==============================*/
 section.contact-us .icon-envelope {
   color: var(--subtitle);
   margin-right: 1rem;
@@ -97,7 +101,8 @@ section.contact-us .submit:hover {
     padding: 0.7rem 0;
     margin-top: 1rem;
   }
-  section.contact-us .submit{
+
+  section.contact-us .submit {
     width: 30%;
     align-self: center;
   }
