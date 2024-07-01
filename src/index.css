@@ -33,7 +33,7 @@ html {
   --blue: rgb(93, 188, 252);
 
   --icon-hover: #d4d4d8;
-  
+
   --container-padding: 4.8rem;
 }
 
@@ -59,7 +59,7 @@ body {
   border-bottom: 1px solid var(--border);
   margin: 3rem 0;
   width: calc(100% + var(--container-padding) + var(--container-padding));
-  margin-left: calc(var(--container-padding) * -1) ;
+  margin-left: calc(var(--container-padding) * -1);
 }
 
 li {
@@ -116,5 +116,6 @@ button:active {
     width: 98%;
     padding: 0 var(--container-padding);
   }
+
   ;
 }
