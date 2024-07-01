@@ -4,6 +4,8 @@
 1. left section 
 2. left section ==> buttons
 3. left section ==> cards 
+4. responsive design
+
 */
 /*=====================
     1. left section 
@@ -101,6 +103,9 @@ main section.right-section.flex {
   color: var(--blue);
   margin-right: 12px;
 }
+/*============================
+    4. responsive design
+==============================*/
 @media (max-width: 600px) {
   main.flex{
     flex-direction: column;
