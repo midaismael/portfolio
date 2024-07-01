@@ -31,6 +31,21 @@ footer.flex ul a:hover {
 footer.flex p{
   color: rgb(113, 113, 122);
 }
+.scroll2Top{
+  background-color: rgba(25, 118, 210, 0.85);
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 2rem;
+  right: 3%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.scroll2Top:hover{
+  background-color: rgba(25, 118, 210);
+
+}
 /*============================
   1.responsive
 ==============================*/
@@ -38,5 +53,10 @@ footer.flex p{
   footer.flex{
     flex-direction: column;
     gap: 2rem;
+  }
+  .scroll2Top{
+    opacity: 0.6;
+    width: 2.2rem;
+    height: 2.2rem;
   }
 }
