@@ -41,7 +41,7 @@ const Header = () => {
           <ul className="model">
             <li>
               <button
-                className="icon-cross"
+                className="icon-close"
                 onClick={() => {
                   setshowModel(false);
                 }}
