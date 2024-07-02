@@ -2,3 +2,10 @@
 **rem % px
 **true and false {true && (<div></div>)} it work when click on button
 ** usestate 
+** onClick
+** find => element
+** filter => array
+** item.asdjasasf
+** reusable function
+** my projects slides
+** useEffect make side effect updating dom 
