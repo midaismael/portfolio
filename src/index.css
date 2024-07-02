@@ -105,6 +105,10 @@ button:hover {
 button:active {
   scale: 0.9;
 }
+button:disabled{
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 ::-webkit-scrollbar {
   width: 0.88rem;

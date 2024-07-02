@@ -78,7 +78,6 @@ main section.right-section.flex {
 
 .card:hover {
   border: 1px solid var(--blue);
-  background-color: rgba(246, 246, 246);
   cursor: pointer;
   rotate: 2deg;
   scale: 1.01;
