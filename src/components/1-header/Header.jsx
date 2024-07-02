@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./header.css";
 
 const Header = () => {
-  const [showModel, setshowModel] = useState(false);
+  const [showModel, setShowModel] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("currentMode") ?? "dark");
+  useEffect(() => {
+    if (theme == "light") {
+      document.body.classList.remove("dark");
+      document.body.classList.add("light");
+    } else {
+      document.body.classList.remove("light");
+      document.body.classList.add("dark");
+    }
+  }, [theme]);
   return (
     <header className="flex">
       <button
         onClick={() => {
-          setshowModel(true);
+          setShowModel(true);
         }}
         className="menu icon-menu flex"
       />
@@ -32,8 +42,23 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <button className="mode flex">
-        <span className="icon-moon-o"></span>
+      <button
+        onClick={() => {
+          // send value to ls
+          localStorage.setItem(
+            "currentMode",
+            theme === "dark" ? "light" : "dark"
+          );
+          // get value from ls
+          setTheme(localStorage.getItem("currentMode"));
+        }}
+        className="mode flex"
+      >
+        {theme === "dark" ? (
+          <span className="icon-moon-o"></span>
+        ) : (
+          <span className="icon-sun"></span>
+        )}
       </button>
 
       {showModel && (
@@ -43,7 +68,7 @@ const Header = () => {
               <button
                 className="icon-close"
                 onClick={() => {
-                  setshowModel(false);
+                  setShowModel(false);
                 }}
               />
             </li>

@@ -8,4 +8,5 @@
 ** item.asdjasasf
 ** reusable function
 ** my projects slides
-** useEffect make side effect updating dom 
+** useEffect make side effect updating dom
+** light mode (light , dark)
