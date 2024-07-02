@@ -1,22 +1,64 @@
+import { useState } from "react";
 import "./main.css";
+import { myProjects } from "./myProjects.js";
 
 const Main = () => {
+  const [currentActive, setCurrentActive] = useState("all");
+  const [arr, setArr] = useState(myProjects);
+  const handleClick = (buttonCategory) => {
+    setCurrentActive(buttonCategory);
+    const newArr = myProjects.filter((item) => {
+      const zzz = item.category.find((myItem) => {
+        return myItem === buttonCategory;
+      });
+      return zzz === buttonCategory;
+    });
+    setArr(newArr);
+  };
   return (
     <main className="flex">
       <section className="flex left-section">
-        <button className="active">all projects</button>
-        <button>HTML & CSS</button>
-        <button>JavaScript</button>
-        <button>React</button>
-        <button>Node & Express</button>
+        <button
+          onClick={() => {
+            setCurrentActive("all");
+            setArr(myProjects);
+          }}
+          className={currentActive === "all" ? "active" : null}
+        >
+          all projects
+        </button>
+        <button
+          onClick={() => {
+            handleClick("css");
+          }}
+          className={currentActive === "css" ? "active" : null}
+        >
+          HTML & CSS
+        </button>
+        <button
+          onClick={() => {
+            handleClick("react");
+          }}
+          className={currentActive === "react" ? "active" : null}
+        >
+          React
+        </button>
+        <button
+          onClick={() => {
+            handleClick("bootstrap");
+          }}
+          className={currentActive === "bootstrap" ? "active" : null}
+        >
+          Bootstrap
+        </button>
       </section>
       <section className="right-section flex">
-        {["aa", "bb", "cc", 1 , 2].map((item) => {
+        {arr.map((item) => {
           return (
-            <article key={item} className="card">
-              <img width={220} src="./dorsin-bg.png" alt="" />
+            <article key={item.imgPath} className="card">
+              <img width={220} src={item.imgPath} alt="" />
               <div style={{ width: "220px" }} className="box">
-                <h1 className="title">Landing-page-dorsin</h1>
+                <h1 className="title">{item.projectTitle}</h1>
                 <p className="subtitle">
                   Lorem ipsum is placeholder text commonly used in the graphic,
                   print, and publishing industries for previewing layouts and

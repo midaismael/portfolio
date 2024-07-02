@@ -53,7 +53,7 @@ main section.left-section.flex button.active {
     3. right section ==> cards
 =====================*/
 main section.right-section.flex {
-  /*flex-grow: 1;*/
+  flex-grow: 1;
   justify-content: center;
   flex-wrap: wrap;
   column-gap: 16px;
@@ -80,6 +80,7 @@ main section.right-section.flex {
 }
 .card .box .title{
   color: var(--title);
+  text-transform: capitalize;
 }
 .card .box .subtitle{
   color: var(--subtitle);
