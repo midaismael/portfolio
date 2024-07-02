@@ -119,3 +119,8 @@ section.contact-us .submit:hover {
     align-self: center;
   }
 }
+@media (max-width: 1200px) {
+  .contactAnimation{
+    display: none;
+  }
+}

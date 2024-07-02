@@ -1,7 +1,9 @@
 import React from "react";
 import "./contact.css";
 import { useForm, ValidationError } from "@formspree/react";
-
+import Lottie from "lottie-react";
+import doneAnimation from "../../animations/done.json";
+import contactUsAnimation from "../../animations/contact.json"
 const Contact = () => {
   const [state, handleSubmit] = useForm("manwyopr");
   return (
@@ -14,11 +16,17 @@ const Contact = () => {
         Contact us for more information and get notified when i puplish
         something new.
       </p>
-      <div className="flex">
+      <div style={{ justifyContent: "space-between" }} className="flex">
         <form onSubmit={handleSubmit} className="">
           <div className="flex">
             <label htmlFor="email">Email Address:</label>
-            <input autoComplete="off" required type="email" name="email" id="email" />
+            <input
+              autoComplete="off"
+              required
+              type="email"
+              name="email"
+              id="email"
+            />
             <ValidationError
               prefix="Email"
               field="email"
@@ -38,12 +46,26 @@ const Contact = () => {
             {state.submitting ? "Submitting ..." : "Submit"}
           </button>
           {state.succeeded && (
-            <p style={{ fontSize: "16px", marginTop: "1.7rem" }}>
+            <p
+              className="flex"
+              style={{ fontSize: "16px", marginTop: "1.7rem" }}
+            >
+              <Lottie
+                loop={false}
+                style={{ height: 37 }}
+                animationData={doneAnimation}
+              />
               Your message has been sent successfully 👌
             </p>
           )}
         </form>
-        <div className="animation border">animation</div>
+        <div className="animation">
+          <Lottie
+          className="contactAnimation"
+            style={{ height: 355 }}
+            animationData={contactUsAnimation}
+          />
+        </div>
       </div>
     </section>
   );

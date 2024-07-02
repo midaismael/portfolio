@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./hero.css";
-
+import Lottie from "lottie-react";
+import devAnimation from "../../animations/frontend.json";
+import { motion } from "framer-motion";
 const Hero = () => {
+  const lottieRef = useRef();
   return (
     <section className="hero flex">
       <div className="left-section">
         <div className="parent-avatar flex">
-          <img src="./mida-pic.jpeg" className="avatar" alt="" />
+          <motion.img
+            initial={{ transform: "scale(0)" }}
+            animate={{ transform: "scale(1.2)" }}
+            transition={{ damping: 6, type: "spring", stiffness: 100 }}
+            src="./mida-pic.jpeg"
+            className="avatar"
+            alt=""
+          />
           <div className="icon-verified"></div>
         </div>
-        <h1 className="title">
+        <motion.h1
+          className="title"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+        >
           Front-End Developer | React Js,and Communication and Electronics
           Engineering
-        </h1>
+        </motion.h1>
+
         <p className="subtitle">
           Front-end Developer specializing in React.js, with a degree in
           Communication and Electronics Engineering, graduated in
@@ -29,7 +45,17 @@ const Hero = () => {
           <div className="icon icon-linkedin"></div>
         </div>
       </div>
-      <div className="right-section animation border">animation</div>
+      <div className="right-section animation">
+        <Lottie
+          lottieRef={lottieRef}
+          className=""
+          onLoadedImages={() => {
+            // @ts-ignore
+            lottieRef.current.setSpeed(0.5);
+          }}
+          animationData={devAnimation}
+        />
+      </div>
     </section>
   );
 };
