@@ -1,67 +1,69 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import "./main.css";
 import { myProjects } from "./myProjects.js";
 import { motion, AnimatePresence } from "framer-motion";
+import { toast } from "react-toastify";
+import { useRef } from "react";
+import copy from "copy-to-clipboard";
 
 const Main = () => {
-  const [currentActive, setCurrentActive] = useState("all");
-  const [arr, setArr] = useState(myProjects);
-  const handleClick = (buttonCategory) => {
-    setCurrentActive(buttonCategory);
-    const newArr = myProjects.filter((item) => {
-      const zzz = item.category.find((myItem) => {
-        return myItem === buttonCategory;
-      });
-      return zzz === buttonCategory;
-    });
-    setArr(newArr);
+  const [activeCategory, setActiveCategory] = useState("all");
+  const handleCategoryChange = (categoryName) => {
+    setActiveCategory(categoryName);
+  };
+
+  const doesProjectBelongToActiveCategory = (project) => {
+    if (activeCategory === "all") return true;
+    return project.category.includes(activeCategory);
+  };
+  const projectsToShow = myProjects.filter(doesProjectBelongToActiveCategory);
+
+  const textRef = useRef();
+  //Function to add text to clipboard
+  const copyToClipboard = (e) => {
+    e.preventDefault();
+    // Text from the html element
+    // @ts-ignore
+    let copyText = textRef.current.getAttribute("data-link");
+    // Adding text value to clipboard using copy function
+    let isCopy = copy(copyText);
+
+    //Dispalying notification
+    if (isCopy) {
+      toast.success("Copied to Clipboard");
+    }
   };
   return (
     <main className="flex">
       <section className="flex left-section">
         <button
-          onClick={() => {
-            setCurrentActive("all");
-            setArr(myProjects);
-          }}
-          className={currentActive === "all" ? "active" : null}
+          onClick={() => handleCategoryChange("all")}
+          className={activeCategory === "all" ? "active" : null}
         >
           all projects
         </button>
         <button
-          onClick={() => {
-            handleClick("css");
-          }}
-          className={currentActive === "css" ? "active" : null}
-        >
-          HTML & CSS
-        </button>
-        <button
-          onClick={() => {
-            handleClick("react");
-          }}
-          className={currentActive === "react" ? "active" : null}
+          onClick={() => handleCategoryChange("react")}
+          className={activeCategory === "react" ? "active" : null}
         >
           React
         </button>
         <button
-          onClick={() => {
-            handleClick("bootstrap");
-          }}
-          className={currentActive === "bootstrap" ? "active" : null}
+          onClick={() => handleCategoryChange("javascript")}
+          className={activeCategory === "javascript" ? "active" : null}
         >
-          Bootstrap
+          Javascript
         </button>
       </section>
       <section className="right-section flex">
         <AnimatePresence>
-          {arr.map((item) => {
+          {projectsToShow.map((item) => {
             return (
               <motion.article
                 layout
                 initial={{ transform: "scale(0)" }}
                 animate={{ transform: "scale(1)" }}
-                transition={{type: "spring", damping: 8 , stiffness : 50}}
+                transition={{ type: "spring", damping: 8, stiffness: 50 }}
                 key={item.imgPath}
                 className="card"
               >
@@ -75,11 +77,17 @@ const Main = () => {
                   </p>
                   <div className="flex icons">
                     <div style={{ gap: "11px" }} className="flex">
-                      <div className="icon-link"></div>
-                      <div className="icon-github"></div>
+                      <a
+                        data-link={item.link}
+                        ref={textRef}
+                        onClick={copyToClipboard}
+                        href="#"
+                        className="icon-link"
+                      ></a>
+                      <a href={item.link} className="icon-github"></a>
                     </div>
-                    <a href="" className="link flex">
-                      more
+                    <a className="link flex" href={item.website}>
+                      website
                       <span
                         style={{ alignSelf: "end" }}
                         className="icon-arrow-right"
