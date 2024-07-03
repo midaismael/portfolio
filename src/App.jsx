@@ -33,7 +33,7 @@ function App() {
         }}
         href="#up"
       >
-        <button className="scroll2Top icon-keyboard_arrow_up"></button>
+        <button className="scroll2Top icon-chevron-up"></button>
       </a>
     </div>
   );

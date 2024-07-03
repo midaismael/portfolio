@@ -25,8 +25,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
         >
-          Front-End Developer | React Js,and Communication and Electronics
-          Engineering
+          Front-End Developer | React Js
         </motion.h1>
 
         <p className="subtitle">
@@ -39,10 +38,9 @@ const Hero = () => {
           projects as examples of my work.
         </p>
         <div className="all-icons flex">
-          <div className="icon icon-twitter"></div>
-          <div className="icon icon-instagram"></div>
-          <div className="icon icon-github"></div>
-          <div className="icon icon-linkedin"></div>
+          <a href="https://www.facebook.com/ahmed.ismael.50951101?mibextid=ZbWKwL" className="icon icon-facebook"></a>
+          <a href="https://github.com/midaismael" className="icon icon-github"></a>
+          <a href="www.linkedin.com/in/ahmedismael22" className="icon icon-linkedin"></a>
         </div>
       </div>
       <div className="right-section animation">

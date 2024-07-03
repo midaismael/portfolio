@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <section className="contact-us">
       <h1 className="title">
-        <span className="icon-envelope"></span>
+        <span className="icon-envelope-o"></span>
         Contact Us
       </h1>
       <p className="sub-title">
