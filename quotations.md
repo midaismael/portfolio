@@ -10,3 +10,7 @@
 ** my projects slides
 ** useEffect make side effect updating dom
 ** light mode (light , dark)
+** .filter() .map
+** handleclick()
+** copyToClipboard
+** animation 
