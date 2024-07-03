@@ -40,7 +40,7 @@ const Hero = () => {
         <div className="all-icons flex">
           <a href="https://www.facebook.com/ahmed.ismael.50951101?mibextid=ZbWKwL" className="icon icon-facebook"></a>
           <a href="https://github.com/midaismael" className="icon icon-github"></a>
-          <a href="www.linkedin.com/in/ahmedismael22" className="icon icon-linkedin"></a>
+          <a href="https://www.linkedin.com/in/ahmedismael22/" className="icon icon-linkedin"></a>
         </div>
       </div>
       <div className="right-section animation">

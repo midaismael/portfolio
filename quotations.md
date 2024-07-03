@@ -14,3 +14,11 @@
 ** handleclick()
 ** copyToClipboard
 ** animation 
+** npm install -g firebase-tools@10.9.2 
+** firebase login
+** folder
+** firebase init
+** firebase serve
+** firebase deploy
+
+** gh-pages (vite)
